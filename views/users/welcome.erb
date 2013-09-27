@@ -1,0 +1,15 @@
+<html>
+	<head> <head>
+	<body>
+		<h3>Data must be saved !?</h3>
+					<ul><% @user.each do |user| %>
+				<h3>Welcome <%=user.email%>!</h3>
+				<li>Account: <%=user.email%>
+
+					<li><%=user.id %></li>
+					 <code>Password: <%=user.password%></code>
+				</li>
+				<% end %>
+			</ul>
+	</body>		
+<html>

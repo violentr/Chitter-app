@@ -1,8 +1,8 @@
 <html>
 <body>
   <% if current_user %>
-    Welcome, <%= current_user.email %>
+    Welcome, <%@current_user.email %>
   <% end %>
-  <%= yield %>
+ <%= yield %>
 </body>
 </html>

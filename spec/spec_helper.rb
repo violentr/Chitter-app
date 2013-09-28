@@ -8,7 +8,8 @@ require 'capybara/rspec'
 require_relative '../lib/chitter'
 require 'database_cleaner'
 require 'data_mapper'
-
+require_relative '../lib/link'
+require_relative '../lib/tag'
 
 env = ENV["RACK_ENV"] || "test"
 
@@ -17,7 +18,8 @@ require_relative '../lib/user'
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-Capybara.app = Chitter
+# Capybara.app = Chitter
+Capybara.app =Sinatra::Application
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
@@ -30,16 +32,16 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 
- #  config.before(:suite) do
-	# 	DatabaseCleaner.strategy = :transaction
-	# 	DatabaseCleaner.clean_with(:truncation)
-	# end
+    config.before(:suite) do
+		DatabaseCleaner.strategy = :transaction
+		DatabaseCleaner.clean_with(:truncation)
+	end
 
-	# config.before(:each) do
-	# 	DatabaseCleaner.start
-	# end
+	config.before(:each) do
+		DatabaseCleaner.start
+	end
 
-	# config.after(:each) do
-	# 	DatabaseCleaner.clean
-	# end
+	config.after(:each) do
+		DatabaseCleaner.clean
+	end
 end

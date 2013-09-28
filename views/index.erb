@@ -1,7 +1,33 @@
 <html>
 	<head> <head>
-	<body>
-		<button><a href='/users/new'>Sign Up</a></button>
-		<h3>Hello Chitter</h3>
-	</body>		
-<html>
+	<div>
+		<script>
+		function msg()
+		{
+			alert("Good Bye ! Come again later")
+		}
+		</script>
+    	<% if current_user %>
+            Welcome, <%= current_user.email %>
+        </br>
+		<body>
+			<button><a href='/users/links'>Add link</a></button>
+			<form action="/logout" method="get">
+			<input type="hidden" name="method" value="">
+			<input type="submit" value="LogOut" onclick="msg()">
+			</form>
+			<% else%>	
+			<button><a href='/users/welcome'>TEST</a></button>
+			<button><a href='/users/new'>Sign Up</a></button>
+			<button><a href='/sessions/new'>Log in</a></button>
+			<h3>Hello Chitter</h3>
+		</body>	
+		<% end%>
+		<ul>
+			<%@links.each  do |link|%>
+			<li><a href="<%=link.url%>"><%=link.title%></a>
+			</li>
+			<% end%>
+		</ul>
+	</div>	
+</html>

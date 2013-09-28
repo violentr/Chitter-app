@@ -1,4 +1,5 @@
 require 'rubygems'
 require File.join(File.dirname(__FILE__), './lib/chitter.rb')
 
-run Chitter
+#run Chitter
+run Sinatra::Application

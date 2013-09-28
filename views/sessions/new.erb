@@ -1,0 +1,22 @@
+<htnl>
+	<head>
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	</head>
+		<body>
+			<div class="login-box" >
+			<h4 >Welcome to Chitter app</h4>
+			<code>Please enter your email an password </code>
+			</div>
+		</br>
+			<div>
+				<form action="/sessions" method="post">
+				<input name="email" type="text"placeholder="Your email">
+				<input name="password" type="password"placeholder="Your password">
+				<input type="submit" value="Login">
+				</form>
+			</div>
+			<div id='flash' class='notice'>
+  				<%= flash[:errors] %>
+			</div>
+		</body>
+</html>

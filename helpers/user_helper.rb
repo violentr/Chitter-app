@@ -1,3 +1,4 @@
+
 module UserHelper
 
   def current_user    

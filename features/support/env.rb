@@ -8,7 +8,8 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 
-Capybara.app = Chitter
+# Capybara.app = Chitter
+Capybara.app =Sinatra::Application
 
 class ChitterWorld
   include Capybara::DSL

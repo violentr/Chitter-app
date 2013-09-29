@@ -1,18 +1,24 @@
 <html>
-<h1>Please sign up</h1>
+
+
 	<head>
-		<link rel="stylesheet" type="text/css" href="/css/default.css">
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
 	</head>
-	<div class="login-box">
-		<form action="/users" method="post">
-		<input name="nick" type="text" value="" placeholder="Your NickName:">
-		<input name="email" type="text" value=""placeholder="Your email">
-		</br>
-		<input name="password" type="password" placeholder="Your password">
-	 	
-	  <input name="password_confirmation" type="password" placeholder="Confirm your password">
-	  <input type="submit" value="Sign up">
-	  <button><a href='/'>Cancel</a></button>
-	</form>
-</div>
+	<body>
+		<p>SignUp Form:</p>
+		<a class="button" href="/">Home</a>
+		<a class="button" href="/sessions/new">Login</a>
+		<a class="button" href="#">About</a>
+		<div class="sign-up-box">
+
+			<form action="/users" method="post">
+		   <input name="email" type="text" value=""placeholder="Your email">
+		   <input name="password" type="password" placeholder="Your password">
+		   <input name="password_confirmation" type="password" placeholder="Confirm your password">
+		  <input class="button" type="submit" value="Sign up">
+		 		</br>
+		 
+			</form>
+		</div>
+	</body>
 </html>

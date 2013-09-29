@@ -1,5 +1,7 @@
 <html>
-	<head> <head>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+	 <head>
 	<div>
 		<script>
 		function msg()
@@ -7,27 +9,29 @@
 			alert("Good Bye ! Come again later")
 		}
 		</script>
-    	<% if current_user %>
-            Welcome, <%= current_user.email %>
-        </br>
-		<body>
-			<button><a href='/users/links'>Add link</a></button>
-			<form  action="/logout" method="get">
-			<input type="hidden" name="method" value="">
-			<input type="submit" value="LogOut" onclick="msg()">
-			</form>
-			<% else%>	
-			<button><a href='/users/welcome'>TEST</a></button>
-			<button><a href='/users/new'>Sign Up</a></button>
-			<button><a href='/sessions/new'>Log in</a></button>
-			<h3>Hello Chitter</h3>
+    	   	<% if current_user %>
+            <p>Welcome: <%= current_user.email %> !</p>
+    	  <body>
+    	        </br>
+				<form  action="/logout" method="get">
+				<input type="hidden" name="method" value="">
+				<input class="button" type="submit" value="LogOut" onclick="msg()">
+				<a href='/users/links' class="button">Add Link</a>
+				</form>
+				<% else%>	
+				<a href='/users/welcome' class="button">TEST</a>
+				<a href='/users/new'class="button">Sign Up</a>
+				<a href='/sessions/new' class="button">Log in</a>
+			<h3>Welcome to Chitter App !</h3>
 		</body>	
 		<% end%>
-		<ul>
-			<%@links.each  do |link|%>
-			<li><a href="<%=link.url%>"><%=link.title%>   posted by: </a>
-			</li>
-			<% end%>
-		</ul>
+		 <div class="links">
+			<ul>
+				<%@links.each  do |link|%>
+				<li><a href="<%=link.url%>"><%=link.title%>  <code class="posted_by"> posted by: $NickName</code></a>
+				</li>
+				<% end%>
+			</ul>
+		 </div>
 	</div>	
 </html>

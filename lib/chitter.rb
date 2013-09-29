@@ -25,6 +25,7 @@ set :session_secret, 'Encryption key provided!'
 use Rack::Flash
 
   get '/' do
+
     @links =Link.all
     erb :index
     # erb :index
@@ -50,8 +51,9 @@ use Rack::Flash
   	end
 
     post '/sessions' do
+      @links=Link.all
       email =params[:email]
-      nick =params[:nick]
+      
       password =params[:password]
       user =User.authenticate(email,password)
       if user
@@ -80,6 +82,7 @@ use Rack::Flash
     end
 
     get '/sessions/new' do
+       @links =Link.all
       #'Here is a Log in  session' 
       erb :'sessions/new'
     end

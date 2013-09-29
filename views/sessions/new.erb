@@ -1,33 +1,28 @@
-<htnl>
+<html>
 	<head>
 	<link rel="stylesheet" type="text/css" href="/css/default.css">
 	</head>
 		<body>
-			
-			<div class="chitter-login-box">
+				<p>Login Form:</p>
+				<a class="button" href="/">Home</a>
+				<a class="button" href="/sessions/new">Login</a>
+				<a class="button" href="#">About</a>
+			<div class="login-box">
 				<form action="/sessions" method="post">
 				<input name="email" type="text"placeholder="Your email">
 				<input name="password" type="password"placeholder="Your password">
 				<input class="submit" type="submit" value="Login">
 				</form>
-			<div class='flash'>
-  				<p ><%= flash[:errors] %></p>
+				<div class='flash'>
+  					<p ><%= flash[:errors] %></p>
+				</div>
 			</div>
-		
-				<form action="/users" method="post">
-					<input name="email" type="text" value=""placeholder="Your email">
-					<input name="password" type="password" placeholder="Your password">
-			 	  	<input name="password_confirmation" type="password" placeholder="Confirm your password">
-				  	<input class="submit"type="submit" value="Sign up">
-				</form>
-			</div>
-		</div>
-	<div class="">
-		<section>
+			<div class="links">
+				<section>
 			<ul>
-				<%@links.each do |link|%>
-				<li><a href="<%=link.url%>">    <%=link.title%></li>
-				<% end%>
+				<%@links.each  do |link|%>
+			<li><a href="<%=link.url%>"><%=link.title%> <code class="posted_by">posted by: $NickName</code></a></li>
+			<% end%>
 			</ul>
 		</section>
 	</div>

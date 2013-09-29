@@ -12,7 +12,7 @@
         </br>
 		<body>
 			<button><a href='/users/links'>Add link</a></button>
-			<form action="/logout" method="get">
+			<form  action="/logout" method="get">
 			<input type="hidden" name="method" value="">
 			<input type="submit" value="LogOut" onclick="msg()">
 			</form>
@@ -25,7 +25,7 @@
 		<% end%>
 		<ul>
 			<%@links.each  do |link|%>
-			<li><a href="<%=link.url%>"><%=link.title%></a>
+			<li><a href="<%=link.url%>"><%=link.title%>   posted by: </a>
 			</li>
 			<% end%>
 		</ul>

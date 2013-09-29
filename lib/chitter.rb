@@ -18,6 +18,7 @@ DataMapper.auto_upgrade!
 helpers UserHelper
 
 set :views,File.join(File.dirname(__FILE__), '..', 'views')
+set :public,File.join(File.dirname(__FILE__),'..','public')
 enable :sessions
 set :session_secret, 'Encryption key provided!'
 
@@ -26,6 +27,7 @@ use Rack::Flash
   get '/' do
     @links =Link.all
     erb :index
+    # erb :index
   end
 
   get '/users/new' do
@@ -34,7 +36,8 @@ use Rack::Flash
   end
 
   	post '/users' do
-  		@user =User.new(:email => params[:email], 
+  		@user =User.new(
+              :email => params[:email], 
               :password => params[:password],
               :password_confirmation => params[:password_confirmation])
 	    if @user.save
@@ -48,14 +51,14 @@ use Rack::Flash
 
     post '/sessions' do
       email =params[:email]
-      #nick =params[:nick]
+      nick =params[:nick]
       password =params[:password]
       user =User.authenticate(email,password)
       if user
         session[:user_id]=user.id
         redirect to('/')
       else
-        flash[:errors]="The email or password you have entered is not correct"
+        flash[:errors]="The email or password you have entered is not correct!"
         erb :'sessions/new'
       end
     end

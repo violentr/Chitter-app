@@ -6,7 +6,7 @@ require './lib/link'
 require './lib/tag'
 
 env = ENV["RACK_ENV"] || "development"
-DataMapper.setup(:default, "postgres://localhost:5432/chitter_#{env}")
+DataMapper.setup(:default,ENV["DATABASE_URL"]) #"postgres://localhost:5432/chitter_#{env}")
 
 require_relative '../lib/user'
 

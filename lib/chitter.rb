@@ -43,6 +43,7 @@ end
   
 
   get '/users/new' do
+    @links =Link.all
     @user =User.new
   	erb :'users/new'
   end
@@ -56,7 +57,8 @@ end
 	    session[:user_id] = @user.id
 	    redirect to('/')
       else
-        flash.now[:errors] = @user.errors.full_messages
+        flash.now[:errors] = @user.errors.full_messages.join
+        @links =Link.all
         erb :'users/new'
       end
   	end
@@ -93,6 +95,7 @@ end
     end
 
     get '/sessions/new' do
+      redirect to('/') if current_user
        @links =Link.all
       #'Here is a Log in  session' 
       erb :'sessions/new'

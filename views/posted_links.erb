@@ -1,0 +1,9 @@
+<h3 style="color:white;font-size:200%;margin-top:20px;">Links:</h2>
+<div class="links">
+      <ul>
+        <%@links.each  do |link|%>
+        <li><a href="<%=link.url%>"><%=link.title%>  <code class="posted_by"> posted by: $NickName</code></a>
+        </li>
+        <% end%>
+      </ul>
+</div>

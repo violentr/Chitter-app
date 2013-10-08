@@ -2,23 +2,40 @@
 
 
 	<head>
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
 	</head>
 	<body>
-		<p>SignUp Form:</p>
-		<a class="button" href="/">Home</a>
-		<a class="button" href="/sessions/new">Login</a>
-		<a class="button" href="#">About</a>
-		<div class="sign-up-box">
-
-			<form action="/users" method="post">
-		   <input name="email" type="text" value=""placeholder="Your email">
-		   <input name="password" type="password" placeholder="Your password">
-		   <input name="password_confirmation" type="password" placeholder="Confirm your password">
-		  <input class="button" type="submit" value="Sign up">
-		 		</br>
-		 
-			</form>
-		</div>
+		<section class="links">
+			<ul>
+				<%@links.each  do |link|%>
+				<li><a href="<%=link.url%>"><%=link.title%> <code class="posted_by">posted by: $NickName</code></a></li>
+				<% end%>
+			</ul>
+		</section>
+		  <section class="container">
+		    <div class="login">
+		      <h1>Login to Chitter App</h1>
+		      <form method="post" action="/users">
+		        <p><input type="text" name="email" value="" placeholder="Your Email"></p>
+		        <p><input type="password" name="password" value="" placeholder="Password"></p>
+		        <input name="password_confirmation" type="password" placeholder="Confirm your password">
+		        <p class="remember_me">
+		          <label>
+		            <input type="checkbox" name="remember_me" id="remember_me">
+		            Remember me on this computer
+		          </label>
+		        </p>
+		        <p class="submit"><input type="submit" name="commit" value="Login"></p>
+		      </form>
+		      <div class='flash'>
+  					<p><%= flash[:errors] %></p>
+				</div>
+		    </div>
+		    <div class="login-help">
+		      <p>Forgot your password? <a href="index.html">Click here to reset it</a>.</p>
+		    </div>
+		</section>
+		</form>
+		</div> 
 	</body>
 </html>

@@ -1,19 +1,12 @@
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-	</head>
-	<body>
-		<a class="button" href="/">Home</a>
-		<a class="button" href="#">Help</a>
 
-		<p>Create New Link: </p>
-		<div class="new-link">
-			<form action="/links" method="post">
-			<input name="url" type="text"placeholder="Your Url">
-			<input name="title" type="text"placeholder="Your Title">
-			<input name="tags" type="text"placeholder="Your Tags">
-			<input type="Submit" value="Add link">
-			</form>
-			</div>
-	</body>
-</html>
+
+<div class="login">
+  <h1>Create new link</h1>
+  <form method="post" action="/links">
+        <p><input type="text" name="url" value="" placeholder="Post your Url"></p>
+        <p><input type="text" name="title" value="" placeholder="Title for url"></p>
+        <p><input type="text" name="tags" value="" placeholder="Tag for url"></p>
+        <p class="submit"><input type="submit" name="commit" value="Create it"></p>
+      </form>
+    </div>
+  </section>

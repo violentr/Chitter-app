@@ -104,8 +104,15 @@ body {
   color: #404040;
   background-image:url('/img/back-ground.jpg');
 }
+div.links {
+
+margin-top:10px;
+
+}
 .links a {
-  text-decoration: none;
+
+padding:10px;
+text-decoration: none;
 color:white;
 font-size:15px;
 }
@@ -113,10 +120,32 @@ code.posted_by {
   color:silver;
   font-weight:bold;
   font-size:14px;
-  font-family:Halvetica;
+  font-family:'Halvetica';
+}
+.flash p{
+
+color:red;
+}
+.button a {
+text-decoration:none;
+padding:10px;
+
+
+
+}
+
+.current_user p {
+
+margin-bottom: 20px;
+color:white;
+padding:15px 0px 15px 15px;
+font-size:48px;
+font-family:'Halvetica'; 
+
+
 }
 .container {
-  margin: 80px auto;
+  margin: 20px auto;
   width: 640px;
 }
 

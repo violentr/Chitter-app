@@ -31,6 +31,7 @@ use Rack::Flash
     # erb :index
   end
 
+#PATH alias using different method
 # get '/new-user' do
 #   path_alias('/users/new')
 #   erb :'users/new'
@@ -90,7 +91,7 @@ use Rack::Flash
       erb :'users/links'
     end
     get '/users/links' do
-    
+    @links =Link.all
       erb :'users/links'
     end
 

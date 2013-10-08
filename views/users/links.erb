@@ -1,5 +1,5 @@
-
-
+<% if current_user %>
+<%= erb :posted_links, :layout => false %>
 <div class="login">
   <h1>Create new link</h1>
   <form method="post" action="/links">
@@ -9,4 +9,6 @@
         <p class="submit"><input type="submit" name="commit" value="Create it"></p>
       </form>
     </div>
-  </section>
+    <% else%>
+    <%= erb :login, :layout =>false %>
+    <% end%>

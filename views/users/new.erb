@@ -1,41 +1,5 @@
-<html>
 
-
-	<head>
-		<link rel="stylesheet" type="text/css" href="/css/style.css">
-	</head>
-	<body>
-		<section class="links">
-			<ul>
-				<%@links.each  do |link|%>
-				<li><a href="<%=link.url%>"><%=link.title%> <code class="posted_by">posted by: $NickName</code></a></li>
-				<% end%>
-			</ul>
-		</section>
-		  <section class="container">
-		    <div class="login">
-		      <h1>Login to Chitter App</h1>
-		      <form method="post" action="/users">
-		        <p><input type="text" name="email" value="" placeholder="Your Email"></p>
-		        <p><input type="password" name="password" value="" placeholder="Password"></p>
-		        <input name="password_confirmation" type="password" placeholder="Confirm your password">
-		        <p class="remember_me">
-		          <label>
-		            <input type="checkbox" name="remember_me" id="remember_me">
-		            Remember me on this computer
-		          </label>
-		        </p>
-		        <p class="submit"><input type="submit" name="commit" value="Login"></p>
-		      </form>
-		      <div class='flash'>
-  					<p><%= flash[:errors] %></p>
-				</div>
-		    </div>
-		    <div class="login-help">
-		      <p>Forgot your password? <a href="index.html">Click here to reset it</a>.</p>
-		    </div>
-		</section>
-		</form>
-		</div> 
-	</body>
-</html>
+		 <%= erb :posted_links, :layout => false %>
+		 <%= erb :create_newuser, :layout => false %>
+	
+		  

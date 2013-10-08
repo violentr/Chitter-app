@@ -31,15 +31,15 @@ use Rack::Flash
     # erb :index
   end
 
-get '/new-user' do
-  path_alias('/users/new')
-  erb :'users/new'
-end
+# get '/new-user' do
+#   path_alias('/users/new')
+#   erb :'users/new'
+# end
 
-  def path_alias(path)
-  status, headers, body = call env.merge("PATH_INFO" => path)
-  [status, headers, body.map]
-  end
+#   def path_alias(path)
+#   status, headers, body = call env.merge("PATH_INFO" => path)
+#   [status, headers, body.map]
+#   end
   
 
   get '/users/new' do

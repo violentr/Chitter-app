@@ -17,9 +17,14 @@ Capybara.app =Sinatra::Application
 feature do 	
 	scenario "When password doesn't match" do
 		lambda{sign_up('a@a.com','pass','wrong_pass')}.should change(User, :count).by(0)
-		visit('/users')
+		visit('/users/new')
 		expect(current_path).to eq('/users')
-		expect(page).to have_content("Sorry your password doesn't match")
+		expect(page).to have_content("The passwords you typed did not match")
+	end
+	scenario "When no username" do
+		sign_up('','','')
+		expect(current_path).to eq('/users/new')
+		expect(page).to have_content("No Username")
 	end
 
 
@@ -29,7 +34,7 @@ feature do
 		fill_in :email, :with => email
 		fill_in :password, :with => password
 		fill_in :password_confirmation, :with => password_confirmation
-		click_button "Sign up"
+		click_button "Login"
 	end
 	
 	

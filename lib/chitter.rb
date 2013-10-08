@@ -5,7 +5,7 @@ require './helpers/user_helper'
 require './lib/link'
 require './lib/tag'
 
-env = ENV["RACK_ENV"] || "development"
+env_type = ENV["RACK_ENV"] || "development"
 DataMapper.setup(:default,ENV["DATABASE_URL"]) #"postgres://localhost:5432/chitter_#{env}")
 
 require_relative '../lib/user'
@@ -18,7 +18,7 @@ DataMapper.auto_upgrade!
 helpers UserHelper
 
 set :views,File.join(File.dirname(__FILE__), '..', 'views')
-set :public,File.join(File.dirname(__FILE__),'..','public')
+set :public_dir,File.join(File.dirname(__FILE__),'..','public')
 enable :sessions
 set :session_secret, 'Encryption key provided!'
 
@@ -30,6 +30,17 @@ use Rack::Flash
     erb :index
     # erb :index
   end
+
+get '/new-user' do
+  path_alias('/users/new')
+  erb :'users/new'
+end
+
+  def path_alias(path)
+  status, headers, body = call env.merge("PATH_INFO" => path)
+  [status, headers, body.map]
+  end
+  
 
   get '/users/new' do
     @user =User.new

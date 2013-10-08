@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Chitter App</title>
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <% if current_user %>
@@ -16,7 +16,7 @@
 <div class="links">
       <ul>
         <%@links.each  do |link|%>
-        <li><a href="<%=link.url%>"><%=link.title%>  <code > posted by: $NickName</code></a>
+        <li><a href="<%=link.url%>"><%=link.title%>  <code class="posted_by"> posted by: $NickName</code></a>
         </li>
         <% end%>
       </ul>

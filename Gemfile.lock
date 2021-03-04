@@ -71,7 +71,7 @@ GEM
       data_objects (= 0.10.13)
     extlib (0.9.16)
     fastercsv (1.5.5)
-    ffi (1.9.0)
+    ffi (1.14.2)
     formatador (0.2.4)
     gherkin (2.12.1)
       multi_json (~> 1.3)
